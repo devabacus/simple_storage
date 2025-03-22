@@ -21,12 +21,12 @@ class UserStorageService {
 
   UserStorageService({required this.storageRepo});
 
-  void saveName(String name) {
-    storageRepo.saveString(key: 'userName', val: name);
+  Future<bool> saveName(String name) async {
+    return storageRepo.saveString(key: 'userName', val: name);
   }
 
-  void saveAge(int age) {
-    storageRepo.saveInt(key: 'userAge', val: age);
+  Future<bool> saveAge(int age) async {
+    return storageRepo.saveInt(key: 'userAge', val: age);
   }
 
   Future<String> getName() async {
